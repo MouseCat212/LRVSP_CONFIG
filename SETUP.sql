@@ -1,8 +1,6 @@
-DROP TABLE PythonConnDB.FilePaths;
-DROP TABLE PythonConnDB.DocObjs;
-DROP TABLE PythonConnDB.LinkObjs;
-DROP DATABASE PythonConnDB;
-DROP USER 'LVRSPAdmin'@'localhost';
+DROP DATABASE IF EXISTS PythonConnDB;
+DROP USER IF EXISTS 'LRVSPAdmin'@'localhost';
+DROP USER IF EXISTS 'LRVSPPython'@'localhost';
 
 CREATE DATABASE PythonConnDB;
 
@@ -31,9 +29,9 @@ CREATE TABLE LinkObjs(
     CONSTRAINT links_PK PRIMARY KEY (ID)
 );
 
-CREATE USER 'LVRSPAdmin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, LOCK TABLES ON *.* TO 'LVRSPAdmin'@'localhost';
+CREATE USER 'LRVSPAdmin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, LOCK TABLES ON *.* TO 'LRVSPAdmin'@'localhost';
 
-CREATE USER 'LVRSPPython'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, LOCK TABLES ON PythonConnDB.* TO 'LVRSPPython'@'localhost';
+CREATE USER 'LRVSPPython'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, LOCK TABLES ON PythonConnDB.* TO 'LRVSPPython'@'localhost';
 FLUSH PRIVILEGES;

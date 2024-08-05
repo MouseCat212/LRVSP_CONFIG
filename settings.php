@@ -2,7 +2,7 @@
 
 $databases['python']['default'] = array (
   'database' => 'PythonConnDB',
-  'username' => 'LVRSPPython',
+  'username' => 'LRVSPPython',
   'password' => 'password',
   'prefix' => '',
   'host' => 'localhost',
